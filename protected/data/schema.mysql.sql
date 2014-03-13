@@ -1,0 +1,31 @@
+ALTER TABLE tbl_name DROP FOREIGN KEY fk_symbol;
+
+DROP TABLE IF EXISTS projectStatus, project;
+
+CREATE TABLE projectStatus (
+    id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    statusName VARCHAR(128) NOT NULL
+) ENGINE=INNODB;
+
+
+CREATE TABLE project (
+    id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(128) NOT NULL,
+	status_id INTEGER,
+	FOREIGN KEY (status_id)
+	REFERENCES projectStatus(id)
+
+) ENGINE=INNODB;
+
+CREATE TABLE projectType (
+    id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    projectType VARCHAR(128) NOT NULL
+) ENGINE=INNODB;
+
+
+ALTER TABLE project ADD FOREIGN KEY (type_id) REFERENCES `projecttype` (`id`) ;
+
+SELECT * FROM information_schema.TABLE_CONSTRAINTS 
+WHERE information_schema.TABLE_CONSTRAINTS.CONSTRAINT_TYPE = 'FOREIGN KEY' 
+AND information_schema.TABLE_CONSTRAINTS.TABLE_SCHEMA = 'myschema'
+AND information_schema.TABLE_CONSTRAINTS.TABLE_NAME = 'mytable';
