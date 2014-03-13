@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Projects'=>array('index'),
+	'Projekty'=>array('index'),
 	$model->name,
 );
 
 $this->menu=array(
-array('label'=>'List project','url'=>array('index')),
-array('label'=>'Create project','url'=>array('create')),
-array('label'=>'Update project','url'=>array('update','id'=>$model->id)),
-array('label'=>'Delete project','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-array('label'=>'Manage project','url'=>array('admin')),
+	array('label'=>'Zaktualizuj dane projektu','url'=>array('update','id'=>$model->id),'visible'=>Yii::app()->user->checkAccess('admin','member')),
+	array('label'=>'Lista aktualnych projektów','url'=>array('index')),
+	array('label'=>'Zarządzaj projektami','url'=>array('admin'),'visible'=>Yii::app()->user->checkAccess('admin')),
+	array('label'=>'Dodaj nowy projekt','url'=>array('create'),'visible'=>Yii::app()->user->checkAccess('admin')),
+	array('label'=>'Usuń projekt','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Czy na pewno chcesz usunąć ten projekt?'),'visible'=>Yii::app()->user->checkAccess('admin')),
 );
 ?>
 

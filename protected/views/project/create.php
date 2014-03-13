@@ -1,12 +1,12 @@
 <?php
 $this->breadcrumbs=array(
-	'Projects'=>array('index'),
+	'Projekty'=>array('index'),
 	'Dodaj nowy projekt',
 );
 
 $this->menu=array(
-array('label'=>'List project','url'=>array('index')),
-array('label'=>'Manage project','url'=>array('admin')),
+	array('label'=>'Lista aktualnych projektów','url'=>array('index')),
+	array('label'=>'Zarządzaj projektami','url'=>array('admin')),
 );
 ?>
 

@@ -1,14 +1,14 @@
 <?php
 $this->breadcrumbs=array(
-	'Projects'=>array('index'),
+	'Projekty'=>array('index'),
 	$model->name=>array('view','id'=>$model->id),
 	'Aktualizacja danych o projekcie',
 );
 
 	$this->menu=array(
-	array('label'=>'Lista projektów','url'=>array('index')),
-	array('label'=>'Dodaj nowy projekt','url'=>array('create')),
 	array('label'=>'Szczegóły projektu','url'=>array('view','id'=>$model->id)),
+	array('label'=>'Lista aktualnych projektów','url'=>array('index')),
+	array('label'=>'Dodaj nowy projekt','url'=>array('create')),
 	array('label'=>'Zarządzaj projektami','url'=>array('admin')),
 	);
 	?>

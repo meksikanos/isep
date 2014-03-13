@@ -103,16 +103,44 @@ class ProjectController extends Controller {
 	 * Lists all models.
 	 */
 	public function actionIndex() {
-		$dataProvider = new CActiveDataProvider('project', array(
-			 
-			  'criteria'=>array(
-			  	'condition' => 'status_id in(1,2,3,4,5,6,7,8)', 
-            	'order'=>'id DESC',
-        		),
-			 			 
-			 'pagination'=>array(
-	            'pageSize'=>50,
-	        ))
+
+		$criteria=new CDbCriteria;
+		$criteria->together = true;
+	
+		$criteria->with = array('type','status');
+		$criteria->condition='status_id in(1,2,3,4,5,6,7,8)';
+
+		$sort = new CSort;
+		$sort->attributes = array (
+			'name',
+			
+			'path',
+			
+			'custom_filter_status' => array(
+				'asc' => 'status.statusName',
+				'desc' => 'status.statusName DESC',
+			),
+
+			'custom_filter_type' => array(
+				'asc' => 'type.projectType',
+				'desc' => 'type.projectType DESC',
+			),
+			
+			'firstAllocTime',
+		);
+
+		$dataProvider = new CActiveDataProvider('project', 
+			array(
+				
+				 'criteria' => $criteria,			 
+				 			 
+				 'pagination'=> array(
+		            'pageSize'=>50,
+		        	),
+					
+				'sort' => $sort,
+
+				)
 		);
 		
 		$this -> render('index', array('dataProvider' => $dataProvider, ));
@@ -124,6 +152,7 @@ class ProjectController extends Controller {
 	public function actionAdmin() {
 		$model = new project('search');
 		$model -> unsetAttributes();
+		
 		// clear any default values
 		if (isset($_GET['project']))
 			$model -> attributes = $_GET['project'];
@@ -153,5 +182,4 @@ class ProjectController extends Controller {
 			Yii::app() -> end();
 		}
 	}
-
 }

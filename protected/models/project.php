@@ -53,6 +53,7 @@ class project extends CActiveRecord
 			array('name, analyst', 'length', 'max'=>128),
 			array('path, init', 'length', 'max'=>50),
 			// The following rule is used by search().
+			
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name, status_id, description, type_id, regulatory, path, init, firstAllocTime, teamSipu, teamAit, teamBiz, analyst, platforms, custom_filter_status, custom_filter_type', 'safe', 'on'=>'search'),
 		);
@@ -85,7 +86,7 @@ class project extends CActiveRecord
 			'regulatory' => 'Czy projekt regulacyjny?',
 			'path' => 'Numer ścieżki',
 			'init' => 'Inicjator projektu',
-			'firstAllocTime' => 'Czas pierwszej alokacji',
+			'firstAllocTime' => 'Data pierwszej alokacji',
 			'teamSipu' => 'Zespół po stronie BiRSiPU',
 			'teamAit' => 'Zespół po stronie AiT',
 			'teamBiz' => 'Zespół po stronie Biznesu',
@@ -143,6 +144,8 @@ class project extends CActiveRecord
 		$sort->attributes = array (
 			'name',
 			
+			'path',
+			
 			'custom_filter_status' => array(
 				'asc' => 'status.statusName',
 				'desc' => 'status.statusName DESC',
@@ -178,14 +181,14 @@ class project extends CActiveRecord
 		return parent::model($className);
 	}
 	
-	public static function getCategories()
+	public function getCategories()
 	{
 		$ret = projectStatus::model()->findAll(array('select'=>'id,statusName'));
 		$list = CHtml::listData($ret,'id', 'statusName');
 		return $list;
 	}
 	
-	public static function getTypes()
+	public function getTypes()
 	{
 		$ret = projectType::model()->findAll(array('select'=>'id,projectType'));
 		$list = CHtml::listData($ret,'id', 'projectType');

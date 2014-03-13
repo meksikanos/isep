@@ -48,6 +48,8 @@ $this->widget('bootstrap.widgets.TbNavbar',array(
     ),
 )); ?>
 
+<div id="header"></div>
+
 <div class="container" id="page">
 
 	<?php if(isset($this->breadcrumbs)):?>
@@ -58,15 +60,12 @@ $this->widget('bootstrap.widgets.TbNavbar',array(
 
 	<?php echo $content; ?>
 
-	<div class="clear"></div>
-
-	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
-	</div><!-- footer -->
-
+<!--	<div class="clear"></div> -->
 </div><!-- page -->
+<div id="footer">
+	Created &copy; <?php echo date('Y'); ?> by Marcin Mołodecki &nbsp;
+</div><!-- footer -->
+
 
 </body>
 </html>
