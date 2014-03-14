@@ -1,15 +1,16 @@
 html, body {
 	/*height: 100%;*/
+	background-color: #262e31;
 }
 
 #page {
-    padding-top: calc(60px + 185px);
+    padding-top: calc(60px + 100px);
     /*height: calc(100% - 40px);*/
 }
 
 #header {
 	top: 0px;
-	height: 185px;
+	height: 100px;
 	background-image: url("/isep/images/header-spring.jpg");
     border-top: 1px solid #000000;
     border-bottom: 1px solid #000000;
@@ -20,18 +21,53 @@ html, body {
 }
 
 #footer {
-	background-color: #FFFFFF;
+	background-color: #262e31;
     border-top: 1px solid #000000;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2) inset;
-    color: #808080;
+    box-shadow: 0 4px 4px rgba(255, 255, 255, 0.2) inset;
+    color: #FFFFFF;
     font-size: 0.716em;
-    height: 10px;
+    font-weight: bold;
+    height: 20px;
     width: 100%;
     text-align: right;
     bottom: 0px;
     float:bottom;
 }
 
+#options {
+	background-color: #404446;
+    border-top: 1px solid #000000;
+    box-shadow: 0 4px 4px rgba(255, 255, 255, 0.2) inset;
+    color: #FFFFFF;
+    font-size: 0.716em;
+    font-weight: bold;
+
+    width: 100%;
+}
+
+#options_elements {
+	margin-left:25%;
+}
+
+#options_elements > ul {
+	margin-bottom: 0px;
+	vertical-align: middle;
+}
+
+#options_elements > ul > li > a {
+	color: #FFFFFF;
+}
+
+#options_elements > .nav-pills > .active > a, .nav-pills > .active > a:hover, .nav-pills > .active > a:focus
+{
+	background-color: #EEEEEE;
+	color: #000000;
+}
+
+#options_elements > ul > li > a:hover {
+	color: #000000;
+}
+
 .navbar.navbar-fixed-top {
-	top: calc(185px);
+	top: calc(100px);
 }

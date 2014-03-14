@@ -3,10 +3,7 @@
 /* @var $model ContactForm */
 /* @var $form TbActiveForm */
 
-$this->pageTitle=Yii::app()->name . ' - Contact Us';
-$this->breadcrumbs=array(
-	'Kontakt',
-);
+$this->pageTitle=Yii::app()->name . ' - Kontakt';
 ?>
 
 <section class="contact">

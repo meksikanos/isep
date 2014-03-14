@@ -30,6 +30,16 @@ $this->widget('bootstrap.widgets.TbNavbar',array(
                 array('label'=>'Kontakt', 'url'=>array('/site/contact')),
                 array('label'=>'Zaloguj', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Zmień hasło', 'url'=>array('/site/changepassword'), 'visible'=>!Yii::app()->user->isGuest),
+
+				array(
+                        'label' => 'Zespół',
+                        'items' => array(
+                            array('label' => 'Członkowie zespołu', 'url'=>array('teammember/index')),
+                        ),
+                        'visible'=>!Yii::app()->user->isGuest,
+                    ),
+
+
 				array(
                         'label' => 'Projekty',
                         'items' => array(
@@ -62,6 +72,31 @@ $this->widget('bootstrap.widgets.TbNavbar',array(
 
 <!--	<div class="clear"></div> -->
 </div><!-- page -->
+<div id="options"><div id="options_elements">
+<?php
+$this->widget(
+    'bootstrap.widgets.TbMenu',
+    array(
+        'type' => 'pills',
+       'items' => array(
+
+            array(
+                'label' => 'Strona główna',
+                'url'=> array('/site/index'),
+            ),
+            
+            array('label' => 'O wydziale', 'url' => array('/site/page', 'view'=>'about')),
+            
+            array('label' => 'Kontakt', 'url' => array('/site/contact')),
+			
+			array('label'=>'Zaloguj', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+			array('label'=>'Zmień hasło', 'url'=>array('/site/changepassword'), 'visible'=>!Yii::app()->user->isGuest),
+			array('label'=>'Wyloguj ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+        )
+    )
+);
+?>
+</div></div>
 <div id="footer">
 	Created &copy; <?php echo date('Y'); ?> by Marcin Mołodecki &nbsp;
 </div><!-- footer -->

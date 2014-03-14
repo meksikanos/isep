@@ -1,11 +1,8 @@
 <?php 
 $this->pageTitle=Yii::app()->name . ' - Formularz zmiany hasła';
-$this->breadcrumbs=array(
-	'Zmiana hasła',
-);
 ?>
 
-<h1>Zmień swoje hasło</h1>
+<h2>Zmień swoje hasło</h2>
 
 <div class="form">
 

@@ -1,4 +1,6 @@
-<?php $this -> breadcrumbs = array('Lista aktualnych projektów', );
+<?php 
+
+//$this -> breadcrumbs = array('Lista aktualnych projektów', );
 
 $this -> menu = array( 
 						array('label' => 'Dodaj nowy projekt', 'url' => array('create'),'visible'=>Yii::app()->user->checkAccess('admin')), 
@@ -6,7 +8,7 @@ $this -> menu = array(
 					);
 ?>
 
-<h1>Lista aktualnie trwających projektów</h1>
+<h2>Lista aktualnie trwających projektów</h2>
 
 <?php 
 	$this -> widget('bootstrap.widgets.TbGridView', 
@@ -39,7 +41,6 @@ $this -> menu = array(
 			)
 	); 
 
-
 /*
  * @property string $name
  * @property integer $status_id
@@ -54,5 +55,6 @@ $this -> menu = array(
  * @property string $teamBiz
  * @property string $analyst
  * @property string $platforms
- */	
+*/
+ 	
 ?>

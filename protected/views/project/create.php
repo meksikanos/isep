@@ -10,6 +10,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Nowy projekt</h1>
+<h2>Formularz nowego projektu</h2>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

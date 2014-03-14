@@ -1,17 +1,13 @@
 <?php
 /* @var $this SiteController */
-
-$this->pageTitle=Yii::app()->name . ' - About';
-$this->breadcrumbs=array(
-	'O wydziale',
-);
+$this->pageTitle=Yii::app()->name . ' - O Wydziale Platform Wspierających';
 ?>
 <article>
     <h3>Wprowadzenie</h3>
 
     <p>
-        Pod pojęciem platformy ISeP  kryje się szereg aplikacji, których zadaniem jest realizacja usług dla rynku Prepaid/MIX oraz Postpaid. Niektóre aplikacje działają niezależnie, inne są ze sobą powiązane i działają w rozproszonym środowisku. W większości przypadków, jedna aplikacja odpowiada za obsługę jednej usługi.
-        Za rozwój platformy odpowiadają pracownicy Wydziału Platform Wspierających Grupy TP (dalej WPW).
+        Pod pojęciem platformy ISeP kryje się szereg aplikacji, których zadaniem jest realizacja usług dla rynku Prepaid/MIX oraz Postpaid. Niektóre aplikacje działają niezależnie, inne są ze sobą powiązane i działają w rozproszonym środowisku. W większości przypadków, jedna aplikacja odpowiada za obsługę jednej usługi.
+        Za rozwój platformy odpowiadają pracownicy <b>Wydziału Platform Wspierających</b> Orange Polska (dalej WPW).
     </p>
 
     <h3>Historia rozwoju</h3>
