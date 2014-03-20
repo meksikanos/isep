@@ -170,6 +170,16 @@ class project extends CActiveRecord
 		));
 	}
 
+	public function getProjectReportsAgg()
+	{
+		$cmd = "select count(*) as count, pt.projectType as type from project p left join projectstatus ps on p.status_id = ps.id left join projecttype pt on p.type_id = pt.id where p.status_id in(1,2,3,4,5,6,7,8) group by type";
+		$connection = Yii::app()->db;
+		$command = $connection->createCommand($cmd);
+		$report = $command->select($cmd)->queryAll();
+		
+		return $report;
+	}
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

@@ -6,6 +6,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'Zaktualizuj dane projektu','url'=>array('update','id'=>$model->id),'visible'=>Yii::app()->user->checkAccess('admin','member')),
+	array('label'=>'Rejestruj zdarzenie','url'=>array('comment/create','project_id'=>$model->id),'visible'=>Yii::app()->user->checkAccess('admin','member')),
 	array('label'=>'Lista aktualnych projektów','url'=>array('index')),
 	array('label'=>'Zarządzaj projektami','url'=>array('admin'),'visible'=>Yii::app()->user->checkAccess('admin')),
 	array('label'=>'Dodaj nowy projekt','url'=>array('create'),'visible'=>Yii::app()->user->checkAccess('admin')),

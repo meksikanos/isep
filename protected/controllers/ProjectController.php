@@ -23,7 +23,7 @@ class ProjectController extends Controller {
 	public function accessRules() {
 		return array( 
 		array('allow', // allow all users to perform 'index' and 'view' actions
-		'actions' => array('index', 'view'), 'users' => array('*'), ), 
+		'actions' => array('index', 'view', 'ProjectStats'), 'users' => array('*'), ), 
 		
 		array('allow', // allow authenticated user to perform 'create' and 'update' actions
 		'actions' => array('create', 'update'), 'roles' => array('admin'), ), 
@@ -143,7 +143,47 @@ class ProjectController extends Controller {
 				)
 		);
 		
-		$this -> render('index', array('dataProvider' => $dataProvider, ));
+		$this -> render('index', array('dataProvider' => $dataProvider));
+	}
+
+	public function actionProjectStats()
+	{
+		$agg_report = project::model()->getProjectReportsAgg();
+		
+		//data transformations 
+		//for PIE Chart
+		$data = $this->prepareArrayResult($agg_report);
+		$barYSeries = $this->prepareYSeries($agg_report);
+		
+		$this -> render('stats', array('data' => $data, 'barYSeries' => $barYSeries));
+	}
+
+	private function prepareYSeries($result)
+	{
+		$new_array = array();
+		
+		$i=0;
+		
+		foreach ($result as $each_member) {
+			$new_array[$i] = array('name' => "'".$each_member['type']."'", 'data' => array((int)$each_member['count']));
+			++$i; 
+		}
+		
+		return $new_array; 
+	}
+
+	private function prepareArrayResult($result)
+	{
+		$new_array = array();
+		
+		$i=0;
+		
+		foreach ($result as $each_member) {
+			$new_array[$i] = array($each_member['type'], (int)$each_member['count']);
+			++$i; 
+		}
+		
+		return $new_array; 
 	}
 
 	/**
@@ -159,7 +199,7 @@ class ProjectController extends Controller {
 
 		$this -> render('admin', array('model' => $model, ));
 	}
-
+	
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.

@@ -39,20 +39,30 @@ $this->widget('bootstrap.widgets.TbNavbar',array(
                         'visible'=>!Yii::app()->user->isGuest,
                     ),
 
-
 				array(
                         'label' => 'Projekty',
                         'items' => array(
                             array('label' => 'Lista aktualnych projektów', 'url'=>array('project/index')),
+                            array('label' => 'Statystyki aktualnych projektów', 'url'=>array('project/projectstats')),
                             array('label' => 'Dodaj projekt', 'url'=>array('project/create'),'visible'=>Yii::app()->user->checkAccess('admin')),
-                            array('label' => 'Statusy projektów', 'url'=>array('projectStatus/index'),'visible'=>Yii::app()->user->checkAccess('admin')),
-                            array('label' => 'Rodzaje projektów', 'url'=>array('projectType/index'),'visible'=>Yii::app()->user->checkAccess('admin')),
+                            array('label' => 'Lista zdarzeń', 'url'=>array('comment/index')),
+                            array('label' => 'Rejestruj zdarzenie', 'url'=>array('comment/create'),'visible'=>(Yii::app()->user->checkAccess('admin','member') )),
                         ),
                         'visible'=>!Yii::app()->user->isGuest,
                     ),
+                    
+				array(
+					'label' => 'Zarządzanie witryną',
+					'items' => array(
+							array('label'=>'Zarządzaj użytkownikami', 'url'=>array('adminUser/index'), 'visible'=>Yii::app()->user->checkAccess('admin')),
+                            array('label' => 'Statusy projektów', 'url'=>array('projectStatus/index'),'visible'=>Yii::app()->user->checkAccess('admin')),
+                            array('label' => 'Rodzaje projektów', 'url'=>array('projectType/index'),'visible'=>Yii::app()->user->checkAccess('admin')),
+                            array('label' => 'Rodzaje zdarzeń w projekcie', 'url'=>array('eventtype/index'),'visible'=>Yii::app()->user->checkAccess('admin')),
+					),
+					'visible'=>Yii::app()->user->checkAccess('admin'),
+				),
 				
-				array('label'=>'Zarządzaj użytkownikami', 'url'=>array('adminUser/index'), 'visible'=>Yii::app()->user->checkAccess('admin')),
-                array('label'=>'Wyloguj ('.Yii::app()->user->name.') - Profil: '.$userRole, 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+                array('label'=>'Wyloguj ('.Yii::app()->user->name.'):'.$userRole, 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
             ),
         ),
     ),
