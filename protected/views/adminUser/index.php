@@ -2,19 +2,40 @@
 /* @var $this AdminUserController */
 /* @var $dataProvider CActiveDataProvider */
 
-$this->breadcrumbs=array(
-	'Admin Users',
-);
-
-$this->menu=array(
-	array('label'=>'Create AdminUser', 'url'=>array('create')),
-	array('label'=>'Manage AdminUser', 'url'=>array('admin')),
-);
+	$this->menu=array(
+		array('label'=>'Dodaj nowego użytkownika', 'url'=>array('create')),
+		array('label'=>'Zarządzaj użytkownikami', 'url'=>array('admin')),
+	);
+	
 ?>
 
-<h1>Admin Users</h1>
+<h3>Lista użytkowników</h3>
 
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
-)); ?>
+<?php 
+
+	$this -> widget('bootstrap.widgets.TbGridView', 
+		array(
+			'dataProvider' => $dataProvider, 
+			
+			'columns' => array(
+							'username',
+							'roles',
+							'email',
+							
+							array(
+								'class'=>'bootstrap.widgets.TbButtonColumn',
+								'template'=>'{view}',
+								
+								'buttons'=>array
+								            (
+												'view' => array
+												(
+													'label'=>'Podgląd użytkownika',
+												),
+											),
+										),
+							)
+						)
+	);
+
+?>

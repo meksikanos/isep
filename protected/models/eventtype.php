@@ -50,8 +50,8 @@ class eventtype extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'type' => 'Type',
+			'id' => 'Identyfikator zdarzenia',
+			'type' => 'Rodzaj zdarzenia',
 		);
 	}
 

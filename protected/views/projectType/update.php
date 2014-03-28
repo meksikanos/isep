@@ -1,18 +1,27 @@
 <?php
-$this->breadcrumbs=array(
-	'Project Types'=>array('index'),
-	$model->id=>array('view','id'=>$model->id),
-	'Update',
-);
+
+	$this->breadcrumbs=array(
+		'Rodzaje projektów'=>array('index'),
+		$model->projectType=>array('view','id'=>$model->id),
+		'Aktualizacja rodzaju',
+	);
 
 	$this->menu=array(
-	array('label'=>'List projectType','url'=>array('index')),
-	array('label'=>'Create projectType','url'=>array('create')),
-	array('label'=>'View projectType','url'=>array('view','id'=>$model->id)),
-	array('label'=>'Manage projectType','url'=>array('admin')),
+		array('label'=>'Lista rodzajów projektów','url'=>array('index')),
+		array('label'=>'Utwórz nowy rodzaj projektu','url'=>array('create')),
+		array('label'=>'Szczegóły rodzaju projektu','url'=>array('view','id'=>$model->id)),
+		array('label'=>'Zarządzaj rodzajami projektów','url'=>array('admin')),
 	);
-	?>
 
-	<h1>Update projectType <?php echo $model->id; ?></h1>
+	$this->beginWidget(
+	    'bootstrap.widgets.TbBox',
+	    array(
+	        'title' => 'Modyfikuj rodzaj projektu',
+	        'headerIcon' => 'icon-list-alt',
+	    )
+	);
 
-<?php echo $this->renderPartial('_form',array('model'=>$model)); ?>
+	$this->renderPartial('_form',array('model'=>$model)); 
+	
+	$this->endWidget();
+?>

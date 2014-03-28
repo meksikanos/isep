@@ -1,5 +1,13 @@
 <?php
 
+ /**
+ * This is the model class for form model "ChangePasswordForm".
+ *
+ * The followings are the properties in 'ChangePasswordForm':
+ * @property string $currentPassword
+ * @property string $newPassword
+ * @property string $newPasswordRepeat
+ */
 class ChangePasswordForm extends CFormModel
 {
     public $currentPassword;
@@ -31,7 +39,7 @@ class ChangePasswordForm extends CFormModel
     }
 
     /**
-     * I don't know how you access user's password as well.
+     * @return current user name
      *
      * @return string
      */
@@ -64,4 +72,16 @@ class ChangePasswordForm extends CFormModel
 			$this->addError('currentPassword','Podałeś nieprawidłowe aktualne hasło!');
 		}
     }
+
+	/**
+	 * @return array customized attribute labels (name=>label)
+	 */
+	public function attributeLabels()
+	{
+		return array(
+			'currentPassword' => 'Aktualne hasło',
+			'newPassword' => 'Nowe hasło',
+			'newPasswordRepeat' => 'Powtórz nowe hasło',
+		);
+	}
 }

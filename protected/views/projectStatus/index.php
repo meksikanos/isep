@@ -1,17 +1,37 @@
 <?php
-$this->breadcrumbs=array(
-	'Project Statuses',
-);
 
-$this->menu=array(
-array('label'=>'Create projectStatus','url'=>array('create')),
-array('label'=>'Manage projectStatus','url'=>array('admin')),
-);
+	$this->menu=array(
+		array('label'=>'Utwórz nowy status projektu','url'=>array('create')),
+		array('label'=>'Zarządzaj statusami projektów','url'=>array('admin')),
+	);
+	
 ?>
 
-<h1>Project Statuses</h1>
+<h3>Statusy projektów</h3>
 
-<?php $this->widget('bootstrap.widgets.TbListView',array(
-'dataProvider'=>$dataProvider,
-'itemView'=>'_view',
-)); ?>
+<?php 
+
+	$this -> widget('bootstrap.widgets.TbGridView', 
+		array(
+			'dataProvider' => $dataProvider, 
+			
+			'columns' => array(
+							'statusName',
+							
+							array(
+								'class'=>'bootstrap.widgets.TbButtonColumn',
+								'template'=>'{view}',
+								
+								'buttons'=>array
+								            (
+												'view' => array
+												(
+													'label'=>'Podgląd statusu projektu',
+												),
+											),
+										),
+							)
+						)
+	);
+
+?>

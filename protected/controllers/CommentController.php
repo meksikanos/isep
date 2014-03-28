@@ -176,6 +176,8 @@ class CommentController extends Controller {
 	
 		$criteria->condition='project_id = '.$proj_id;
 
+		$criteria->order="comment_date desc, creation_ts desc";
+
 		$sort = new CSort;
 		$sort->attributes = array (
 			'project_id',

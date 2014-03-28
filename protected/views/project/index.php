@@ -1,17 +1,17 @@
 <?php 
 
-//$this -> breadcrumbs = array('Lista aktualnych projektów', );
-
-$this -> menu = array( 
-						array('label' => 'Dodaj nowy projekt', 'url' => array('create'),'visible'=>Yii::app()->user->checkAccess('admin')), 
-						array('label' => 'Zarządzaj projektami', 'url' => array('admin'),'visible'=>Yii::app()->user->checkAccess('admin')),
-						array('label' => 'Statystyki aktualnych projektów','url'=>array('projectstats')), 
-					);
+	$this->menu=array( 
+		array('label' => 'Dodaj nowy projekt', 'url' => array('create'),'visible'=>Yii::app()->user->checkAccess('admin')), 
+		array('label' => 'Zarządzaj projektami', 'url' => array('admin'),'visible'=>Yii::app()->user->checkAccess('admin')),
+		array('label' => 'Statystyki aktualnych projektów','url'=>array('projectstats')), 
+	);
+	
 ?>
 
-<h2>Lista aktualnie trwających projektów</h2>
+<h3>Lista aktualnie trwających projektów</h3>
 
 <?php 
+
 	$this -> widget('bootstrap.widgets.TbGridView', 
 		array(
 			'dataProvider' => $dataProvider, 
@@ -66,22 +66,6 @@ $this -> menu = array(
 							)
 
 			)
-	); 
-
-/*
- * @property string $name
- * @property integer $status_id
- * @property string $description
- * @property integer $type_id
- * @property integer $regulatory
- * @property string $path
- * @property string $init
- * @property string $firstAllocTime
- * @property string $teamSipu
- * @property string $teamAit
- * @property string $teamBiz
- * @property string $analyst
- * @property string $platforms
-*/
- 	
+	);
+	 
 ?>

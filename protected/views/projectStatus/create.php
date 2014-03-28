@@ -1,15 +1,25 @@
 <?php
-$this->breadcrumbs=array(
-	'Project Statuses'=>array('index'),
-	'Create',
-);
 
-$this->menu=array(
-array('label'=>'List projectStatus','url'=>array('index')),
-array('label'=>'Manage projectStatus','url'=>array('admin')),
-);
+	$this->breadcrumbs=array(
+		'Statusy projektów'=>array('index'),
+		'Utwórz nowy status projektu',
+	);
+
+	$this->menu=array(
+		array('label'=>'Lista statusów projektu','url'=>array('index')),
+		array('label'=>'Zarządzaj statusami projektów','url'=>array('admin')),
+	);
+
+	$this->beginWidget(
+	    'bootstrap.widgets.TbBox',
+	    array(
+	        'title' => 'Nowy status projektu',
+	        'headerIcon' => 'icon-list-alt',
+	    )
+	);
+	
+	$this->renderPartial('_form', array('model'=>$model));
+	
+	$this->endWidget();
+	
 ?>
-
-<h1>Create projectStatus</h1>
-
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

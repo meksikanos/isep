@@ -1,15 +1,25 @@
 <?php
-$this->breadcrumbs=array(
-	'Project Types'=>array('index'),
-	'Create',
-);
 
-$this->menu=array(
-array('label'=>'List projectType','url'=>array('index')),
-array('label'=>'Manage projectType','url'=>array('admin')),
-);
+	$this->breadcrumbs=array(
+		'Rodzaje projektów'=>array('index'),
+		'Utwórz nowy rodzaj projektu',
+	);
+
+	$this->menu=array(
+		array('label'=>'Lista rodzajów projektów','url'=>array('index')),
+		array('label'=>'Zarządzaj rodzajami projektów','url'=>array('admin')),
+	);
+	
+	$this->beginWidget(
+	    'bootstrap.widgets.TbBox',
+	    array(
+	        'title' => 'Nowy rodzaj projektu',
+	        'headerIcon' => 'icon-list-alt',
+	    )
+	);
+	
+	$this->renderPartial('_form', array('model'=>$model));
+	
+	$this->endWidget(); 
+
 ?>
-
-<h1>Create projectType</h1>
-
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

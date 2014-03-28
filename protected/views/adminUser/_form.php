@@ -4,49 +4,37 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="form">
+<?php 
 
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'admin-user-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// There is a call to performAjaxValidation() commented in generated controller code.
-	// See class documentation of CActiveForm for details on this.
-	'enableAjaxValidation'=>false,
-)); ?>
+	$form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
+		'id'=>'eventtype-form',
+		'enableAjaxValidation'=>false,
+	)); 
+?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+<p class="help-block">Pola oznaczone <span class="required">*</span> są wymagane.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+<?php 
+	
+	echo $form->errorSummary($model);
+	echo $form->textFieldRow($model,'username',array('size'=>60,'maxlength'=>128)); 
+	echo $form->textFieldRow($model,'password',array('size'=>60,'maxlength'=>128));
+	echo $form->textFieldRow($model,'roles',array('size'=>60,'maxlength'=>128));
+	echo $form->textFieldRow($model,'email',array('size'=>60,'maxlength'=>128));
+?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'username'); ?>
-		<?php echo $form->textField($model,'username',array('size'=>60,'maxlength'=>128)); ?>
-		<?php echo $form->error($model,'username'); ?>
-	</div>
+<div class="form-actions">
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'password'); ?>
-		<?php echo $form->passwordField($model,'password',array('size'=>60,'maxlength'=>128)); ?>
-		<?php echo $form->error($model,'password'); ?>
-	</div>
+<?php 
+	
+	$this->widget('bootstrap.widgets.TbButton', array(
+		'buttonType'=>'submit',
+		'type'=>'primary',
+		'label'=>$model->isNewRecord ? 'Utwórz nowy' : 'Zapisz miany',
+	)); 
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'roles'); ?>
-		<?php echo $form->textField($model,'roles',array('size'=>60,'maxlength'=>128)); ?>
-		<?php echo $form->error($model,'roles'); ?>
-	</div>
+?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'email'); ?>
-		<?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>128)); ?>
-		<?php echo $form->error($model,'email'); ?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
-	</div>
+</div>
 
 <?php $this->endWidget(); ?>
-
-</div><!-- form -->

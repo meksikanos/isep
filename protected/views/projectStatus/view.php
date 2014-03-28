@@ -1,24 +1,30 @@
 <?php
-$this->breadcrumbs=array(
-	'Project Statuses'=>array('index'),
-	$model->id,
-);
 
-$this->menu=array(
-array('label'=>'List projectStatus','url'=>array('index')),
-array('label'=>'Create projectStatus','url'=>array('create')),
-array('label'=>'Update projectStatus','url'=>array('update','id'=>$model->id)),
-array('label'=>'Delete projectStatus','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-array('label'=>'Manage projectStatus','url'=>array('admin')),
-);
+	$this->breadcrumbs=array(
+		'Statusy projektu'=>array('index'),
+		$model->statusName,
+	);
+
+	$this->menu=array(
+		array('label'=>'Lista statusów projektu','url'=>array('index')),
+		array('label'=>'Utwórz nowy status projektu','url'=>array('create')),
+		array('label'=>'Aktualizuj status projektu','url'=>array('update','id'=>$model->id)),
+		array('label'=>'Usuń status projektu','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Czy na pewno chcesz usunąć ten status projektu?')),
+		array('label'=>'Zarządzaj statusami projektu','url'=>array('admin')),
+	);
+	
 ?>
 
-<h1>View projectStatus #<?php echo $model->id; ?></h1>
+<h3>Status projektu: <?php echo $model->statusName; ?></h3>
 
-<?php $this->widget('bootstrap.widgets.TbDetailView',array(
-'data'=>$model,
-'attributes'=>array(
-		'id',
-		'statusName',
-),
-)); ?>
+<?php 
+
+	$this->widget('bootstrap.widgets.TbDetailView',array(
+		'data'=>$model,
+		'attributes'=>array(
+				'id',
+				'statusName',
+		),
+	)); 
+
+?>

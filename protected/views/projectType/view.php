@@ -1,24 +1,30 @@
 <?php
-$this->breadcrumbs=array(
-	'Project Types'=>array('index'),
-	$model->id,
-);
 
-$this->menu=array(
-array('label'=>'List projectType','url'=>array('index')),
-array('label'=>'Create projectType','url'=>array('create')),
-array('label'=>'Update projectType','url'=>array('update','id'=>$model->id)),
-array('label'=>'Delete projectType','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-array('label'=>'Manage projectType','url'=>array('admin')),
-);
+	$this->breadcrumbs=array(
+		'Rodzaje projektów'=>array('index'),
+		$model->projectType,
+	);
+
+	$this->menu=array(
+		array('label'=>'Lista rodzajów projektów','url'=>array('index')),
+		array('label'=>'Utwórz nowy rodzaj projektu','url'=>array('create')),
+		array('label'=>'Aktualizuj rodzaj projektu','url'=>array('update','id'=>$model->id)),
+		array('label'=>'Usuń rodzaj projektu','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Czy na pewno chcesz usunąć ten rodzaj projektu?')),
+		array('label'=>'Zarządzaj rodzajami projektów','url'=>array('admin')),
+	);
+
 ?>
 
-<h1>View projectType #<?php echo $model->id; ?></h1>
+<h3>Rodzaj projektu: <?php echo $model->projectType; ?></h3>
 
-<?php $this->widget('bootstrap.widgets.TbDetailView',array(
-'data'=>$model,
-'attributes'=>array(
-		'id',
-		'projectType',
-),
-)); ?>
+<?php 
+
+	$this->widget('bootstrap.widgets.TbDetailView',array(
+		'data'=>$model,
+		'attributes'=>array(
+				'id',
+				'projectType',
+		),
+	)); 
+
+?>

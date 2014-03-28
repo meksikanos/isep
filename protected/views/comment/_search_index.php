@@ -1,9 +1,10 @@
-<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
-	'action'=>Yii::app()->createUrl($this->route),
-	'method'=>'post',
-)); ?>
-
 <?php 
+
+	$form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
+		'action'=>Yii::app()->createUrl($this->route),
+		'method'=>'post',
+	)); 
+
 	echo $form->dropDownListRow(
 								$model,
 								'project_id', 
@@ -16,12 +17,12 @@
 		); 
 ?>
 
-	<div class="form-actions">
-		<?php $this->widget('bootstrap.widgets.TbButton', array(
-			'buttonType' => 'submit',
-			'type'=>'primary',
-			'label'=>'Wyświetl zdarzenia',
-		)); ?>
-	</div>
+<div class="form-actions">
+	<?php $this->widget('bootstrap.widgets.TbButton', array(
+		'buttonType' => 'submit',
+		'type'=>'primary',
+		'label'=>'Wyświetl zdarzenia',
+	)); ?>
+</div>
 
 <?php $this->endWidget(); ?>

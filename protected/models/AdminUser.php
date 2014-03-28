@@ -58,11 +58,11 @@ class AdminUser extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'username' => 'Username',
-			'password' => 'Password',
-			'roles' => 'Roles',
-			'email' => 'Email',
+			'id' => 'Identyfikator',
+			'username' => 'Nazwa użytkownika',
+			'password' => 'Hasło',
+			'roles' => 'Profil',
+			'email' => 'Adres e-mail',
 		);
 	}
 

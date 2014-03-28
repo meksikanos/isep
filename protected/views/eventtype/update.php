@@ -1,18 +1,28 @@
 <?php
-$this->breadcrumbs=array(
-	'Eventtypes'=>array('index'),
-	$model->id=>array('view','id'=>$model->id),
-	'Update',
-);
+
+	$this->breadcrumbs=array(
+		'Rodzaje zdarzeń w projektach'=>array('index'),
+		$model->type=>array('view','id'=>$model->id),
+		'Aktualizacja typu',
+	);
 
 	$this->menu=array(
-	array('label'=>'List eventtype','url'=>array('index')),
-	array('label'=>'Create eventtype','url'=>array('create')),
-	array('label'=>'View eventtype','url'=>array('view','id'=>$model->id)),
-	array('label'=>'Manage eventtype','url'=>array('admin')),
+		array('label'=>'Lista rodzajów zdarzeń','url'=>array('index')),
+		array('label'=>'Utwórz nowy rodzaj zdarzenia','url'=>array('create')),
+		array('label'=>'Podgląd zdarzenia','url'=>array('view','id'=>$model->id)),
+		array('label'=>'Zarządzaj rodzajami zdarzeń','url'=>array('admin')),
 	);
-	?>
 
-	<h1>Update eventtype <?php echo $model->id; ?></h1>
+	$this->beginWidget(
+	    'bootstrap.widgets.TbBox',
+	    array(
+	        'title' => 'Modyfikuj rodzaj zdarzenia',
+	        'headerIcon' => 'icon-list-alt',
+	    )
+	);
 
-<?php echo $this->renderPartial('_form',array('model'=>$model)); ?>
+	echo $this->renderPartial('_form',array('model'=>$model)); 
+	
+	$this->endWidget();
+	 
+?>

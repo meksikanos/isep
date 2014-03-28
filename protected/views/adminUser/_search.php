@@ -4,37 +4,28 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="wide form">
+<?php 
 
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'action'=>Yii::app()->createUrl($this->route),
-	'method'=>'get',
-)); ?>
+	$form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
+		'action'=>Yii::app()->createUrl($this->route),
+		'method'=>'get',
+	)); 
 
-	<div class="row">
-		<?php echo $form->label($model,'id'); ?>
-		<?php echo $form->textField($model,'id'); ?>
-	</div>
+	echo $form->textFieldRow($model,'id',array('class'=>'span5'));
+	
+	echo $form->textFieldRow($model,'username',array('size'=>60,'maxlength'=>128)); 
 
-	<div class="row">
-		<?php echo $form->label($model,'username'); ?>
-		<?php echo $form->textField($model,'username',array('size'=>60,'maxlength'=>128)); ?>
-	</div>
+	echo $form->textFieldRow($model,'roles',array('size'=>60,'maxlength'=>128));
+	
+	echo $form->textFieldRow($model,'email',array('size'=>60,'maxlength'=>128));
+?>
 
-	<div class="row">
-		<?php echo $form->label($model,'roles'); ?>
-		<?php echo $form->textField($model,'roles',array('size'=>60,'maxlength'=>128)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'email'); ?>
-		<?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>128)); ?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
-	</div>
+<div class="form-actions">
+	<?php $this->widget('bootstrap.widgets.TbButton', array(
+		'buttonType' => 'submit',
+		'type'=>'primary',
+		'label'=>'Wyszukaj',
+	)); ?>
+</div>
 
 <?php $this->endWidget(); ?>
-
-</div><!-- search-form -->

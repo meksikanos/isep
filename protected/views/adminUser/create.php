@@ -2,17 +2,26 @@
 /* @var $this AdminUserController */
 /* @var $model AdminUser */
 
-$this->breadcrumbs=array(
-	'Admin Users'=>array('index'),
-	'Create',
-);
+	$this->breadcrumbs=array(
+		'Lista użytkowników'=>array('index'),
+		'Tworzenie nowego użytkownika',
+	);
 
-$this->menu=array(
-	array('label'=>'List AdminUser', 'url'=>array('index')),
-	array('label'=>'Manage AdminUser', 'url'=>array('admin')),
-);
+	$this->menu=array(
+		array('label'=>'Lista użytkowników', 'url'=>array('index')),
+		array('label'=>'Zarządzaj użytkownikami', 'url'=>array('admin')),
+	);
+
+	$this->beginWidget(
+	    'bootstrap.widgets.TbBox',
+	    array(
+	        'title' => 'Nowy użytkownik',
+	        'headerIcon' => 'icon-list-alt',
+	    )
+	);
+
+	$this->renderPartial('_form', array('model'=>$model));
+
+	$this->endWidget();
+
 ?>
-
-<h1>Create AdminUser</h1>
-
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>

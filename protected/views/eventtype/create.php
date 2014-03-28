@@ -1,15 +1,25 @@
 <?php
-$this->breadcrumbs=array(
-	'Eventtypes'=>array('index'),
-	'Create',
-);
 
-$this->menu=array(
-array('label'=>'List eventtype','url'=>array('index')),
-array('label'=>'Manage eventtype','url'=>array('admin')),
-);
+	$this->breadcrumbs=array(
+		'Lista rodzajów zdarzeń'=>array('index'),
+		'Utwórz nowy rodzaj zdarzenia',
+	);
+
+	$this->menu=array(
+		array('label'=>'Lista rodzajów zdarzeń','url'=>array('index')),
+		array('label'=>'Zarządzaj rodzajami zdarzeń','url'=>array('admin')),
+	);
+	
+	$this->beginWidget(
+	    'bootstrap.widgets.TbBox',
+	    array(
+	        'title' => 'Nowy rodzaj zdarzenia',
+	        'headerIcon' => 'icon-list-alt',
+	    )
+	);
+	
+	echo $this->renderPartial('_form', array('model'=>$model)); 
+
+	$this->endWidget();
+	
 ?>
-
-<h1>Create eventtype</h1>
-
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

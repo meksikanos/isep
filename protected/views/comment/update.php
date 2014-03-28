@@ -1,18 +1,28 @@
 <?php
-$this->breadcrumbs=array(
-	'Comments'=>array('index'),
-	$model->id=>array('view','id'=>$model->id),
-	'Update',
-);
+
+	$this->breadcrumbs=array(
+		'Zdarzenia w projektach'=>array('index'),
+		$model->author=>array('view','id'=>$model->id),
+		'Aktualizacja danych zdarzenia',
+	);
 
 	$this->menu=array(
-	array('label'=>'List comment','url'=>array('index')),
-	array('label'=>'Create comment','url'=>array('create')),
-	array('label'=>'View comment','url'=>array('view','id'=>$model->id)),
-	array('label'=>'Manage comment','url'=>array('admin')),
+		array('label'=>'Lista zdarzeń w projektach','url'=>array('index')),
+		array('label'=>'Dodaj nowe zdarzenie','url'=>array('create')),
+		array('label'=>'Podgląd zdarzenia','url'=>array('view','id'=>$model->id)),
+		array('label'=>'Zarządzaj zdarzeniami','url'=>array('admin')),
 	);
-	?>
+	
+	$this->beginWidget(
+	    'bootstrap.widgets.TbBox',
+	    array(
+	        'title' => 'Modyfikuj dane zdarzenia',
+	        'headerIcon' => 'icon-list-alt',
+	    )
+	);
 
-	<h1>Update comment <?php echo $model->id; ?></h1>
+	echo $this->renderPartial('_form',array('model'=>$model, 'project_id'=>$project_id));
 
-<?php echo $this->renderPartial('_form',array('model'=>$model, 'project_id'=>$project_id)); ?>
+	$this->endWidget();
+
+?>

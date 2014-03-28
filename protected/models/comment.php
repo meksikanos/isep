@@ -133,14 +133,26 @@ class comment extends CActiveRecord
 
 	public function getProjects()
 	{
-		$ret = project::model()->findAll(array('select'=>'id,name'));
+		$ret = project::model()->findAll(
+									array(
+										'select'=>'id,name',
+										'order'=>'name',
+									)
+		);
+				
 		$list = CHtml::listData($ret,'id', 'name');
 		return $list;
 	}
 
 	public function getEventTypes()
 	{
-		$ret = eventtype::model()->findAll(array('select'=>'id,type'));
+		$ret = eventtype::model()->findAll(
+									array(
+										'select'=>'id,type',
+										'order'=>'type',
+									)
+		);
+		
 		$list = CHtml::listData($ret,'id', 'type');
 		return $list;
 	}
